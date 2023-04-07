@@ -1,8 +1,8 @@
 let transition = 1000;
 document.documentElement.style.setProperty("--transition", transition + "ms");
 
-let form = document.querySelector("form");
-let input = document.querySelector("input");
+let form = document.querySelector(".url-input-form");
+let input = document.querySelector(".url-input");
 input.focus();
 let bars = document.querySelector(".bars");
 
