@@ -1,4 +1,6 @@
-<?php  include("./inc/components/header.php");?>
+<?php  
+    include("./inc/components/header/header.php");
+?>
 
     <div class="desc-container">
         <div class="desc-content">
@@ -33,7 +35,7 @@
                 <ul class="content__container__list2">
                     <li class="content__container__list__item">L1nk</li>
                     <li class="content__container__list__item">LiNK</li>
-                    <li class="content__container__list__item">L1nk</li>
+                    <li class="content__container__list__item">L1nK</li>
                     <li class="content__container__list__item">LINK</li>
                 </ul>
                 <p class="content__container__text_dot">
@@ -50,8 +52,8 @@
     </div>
     <div class="url-input_container">
         <div class="url-input_content">
-            <form>
-                <input type="text" placeholder="type something ... ">
+            <form class="url-input-form">
+                <input class="url-input" type="text" placeholder="ex: https://CutMyL1nk.fr ">
                 <div class="bars">
                     <div class="bar arrow" style="--rotate:45deg"></div>
                     <div class="bar left" style="--rotate:-45deg;"></div>
@@ -60,6 +62,6 @@
             <h5>Entrer votre url à raccourcir juste au dessus</h5>
         </div>
     </div>
-    <script src="./inc/functions/slogan.js"></script>
-
-<?php  include("./inc/components/footer.php");?>
+    <script src="./inc/functions/front/deleteContentInput.js"></script>
+    <script src="./inc/functions/front/displayingLoginForm.js"></script>
+<?php  include("./inc/components/footer/footer.php");?>
