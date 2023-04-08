@@ -28,4 +28,10 @@ function connexionBDD()
     return $pdo;
 }
 
+function generateShortUrl() {
+    $bytes = random_bytes(3); // 3 bytes = 24 bits = 2^24 possibilités
+    $shortUrl = bin2hex($bytes);
+    return $shortUrl;
+  }
+
 ?>

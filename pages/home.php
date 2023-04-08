@@ -1,5 +1,22 @@
-<?php  
+<?php
     include("./inc/components/header/header.php");
+    require_once('./inc/functions/back/addUrl.php');
+
+    $methode = filter_input(INPUT_SERVER, "REQUEST_METHOD");
+
+    $message = "";
+    $isShort = false;
+
+    $submitUrl = filter_input(INPUT_POST, "submitUrl");
+
+    if ($methode == "POST") {
+
+        $submitUrl = filter_input(INPUT_POST, "submitUrl");
+
+        if(isset($submitUrl)){
+            [$message, $isShort] = addUrl();
+        }
+    }
 ?>
 
     <div class="desc-container">
@@ -52,13 +69,23 @@
     </div>
     <div class="url-input_container">
         <div class="url-input_content">
-            <form class="url-input-form">
-                <input class="url-input" type="text" placeholder="ex: https://CutMyL1nk.fr ">
-                <div class="bars">
-                    <div class="bar arrow" style="--rotate:45deg"></div>
-                    <div class="bar left" style="--rotate:-45deg;"></div>
+            <form class="url-input-form-container" method="POST" action="#">
+                <div class="url-input-form-content">
+                    <input class="url-input" type="text" name="url" placeholder="ex: https://CutMyL1nk.fr ">
+                    <div class="bars">
+                        <div class="bar arrow" style="--rotate:45deg"></div>
+                        <div class="bar left" style="--rotate:-45deg;"></div>
+                    </div>
+                </div>
+                <div class="input-submit-url">
+                    <input type="submit" name="submitUrl" value="Raccourcir">
                 </div>
             </form>
+            <?php if($isShort): ?>
+                <h4 style="color: #ecf0f191"><?php echo $message ?></h4>
+            <?php else: ?>
+                <h4 style="color: #721313"><?php echo $message ?></h4>
+            <?php endif; ?>
             <h5>Entrer votre url à raccourcir juste au dessus</h5>
         </div>
     </div>

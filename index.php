@@ -9,11 +9,12 @@ session_start();
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= $titre ?></title>
+        <title>CutMyL1nk</title>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="./inc/components/header/navbar.css">
         <link rel="stylesheet" href="./inc/components/footer/footer.css">
         <link rel="stylesheet" href="./pages/home.css">
+        <link rel="stylesheet" href="./pages/myShortLink.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Raleway:wght@100&display=swap" rel="stylesheet">

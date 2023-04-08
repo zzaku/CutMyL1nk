@@ -88,11 +88,11 @@ $liens = [
                             <label>Adresse mail</label>
                         </div>
                         <div class="user-box">
-                            <input type="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" name="password" required="true" autocomplete required>
+                            <input type="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" name="password" required="true" autocomplete required>
                             <label>Password</label>
                         </div>
                         <div class="user-box">
-                            <input type="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" name="confirmPassword" required="true" autocomplete required>
+                            <input type="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" name="confirmPassword" required="true" autocomplete required>
                             <label>confirm password</label>
                         </div>
                         <a href="#">
