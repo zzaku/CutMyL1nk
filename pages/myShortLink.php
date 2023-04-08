@@ -2,7 +2,8 @@
     include("./inc/components/header/header.php");
 ?>
 
-    <h1><?= $titre ?></h1>
-    <p><?= $paragraphe ?></p>
+    <div class="list-user-url-container">
+
+    </div>
 
 <?php  include("./inc/components/footer/footer.php");?>

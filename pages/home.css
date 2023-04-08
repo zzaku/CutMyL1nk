@@ -417,6 +417,43 @@
     align-items: center;
     color: #ecf0f1;
   }
+
+  .url-input-form-container{
+    display: flex;
+    padding: 0;
+    align-items: center;
+    max-width: 100%;
+    width: 50%;
+  }
+
+  .url-input-form-content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0.5em;
+  }
+
+  .input-submit-url{
+    display: flex;
+    height: 45%;
+    margin-right: 10%;
+    padding: 0.5em;
+    cursor: pointer;
+  }
+
+  .input-submit-url:hover{
+    border: 2px #16a085 solid;
+    border-radius: 10px;
+    height: 75%;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  
+  .input-submit-url input{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
   
   form.move input {
     width: 0;
