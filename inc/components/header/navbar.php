@@ -41,7 +41,7 @@ $liens = [
         <div class="account">
             <?php if(isset($_SESSION["userId"])): ?>
                 <div class="btn-account-logged-container">
-                    <a id="btn-account-logged" href="#"><i class="fa fa-user"></i></a>
+                    <h3><?php echo $_SESSION["username"] ?></h3><a id="btn-account-logged" href="#"><i class="fa fa-user"></i></a>
                     <form class="logout-form" method="POST" action="#">
                         <a id="btn-account-logout" href="#"><i class="logout-icon fas fa-sign-out-alt"></i><input class="input-logout" type="submit" name="submitLogout" value=""></a>
                     </form>

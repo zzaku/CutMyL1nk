@@ -56,7 +56,7 @@ function addUrl()
                     } else {
 
                         $shortUrl = generateShortUrl();
-                        $fullShortUrl = $shortUrl;
+                        $fullShortUrl = 'cutmy.l1nk/' . $shortUrl . $_SESSION['userId'];
 
                         // Select l'utilisateur correspondant au pseudo et au mot de passe
                         $stmt = $pdo->prepare('INSERT INTO urls (user_id, original_url, short_url) VALUES (:user_id, :original_url, :short_url)');
@@ -66,7 +66,7 @@ function addUrl()
                             'short_url' => $fullShortUrl,
                         ));
 
-                        $message = "URL raccourcie : <a style='color: #16a085' href=" . "/CutMyLink/" . $fullShortUrl . ">" . "localhost/CutMyLink/" . $fullShortUrl . "</a>";
+                        $message = "URL raccourcie : <a style='color: #16a085' href=" . $fullShortUrl . ">" . "CutMyLink/" . $fullShortUrl . "</a>";
                         $isShort = true;
                     }
 
