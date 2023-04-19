@@ -6,6 +6,7 @@ require_once('./inc/functions/back/logout.php');
 
 $methode = filter_input(INPUT_SERVER, "REQUEST_METHOD");
 $message = "";
+
     if ($methode == "POST") {
 
         $submitRegister = filter_input(INPUT_POST, "submitRegister");
@@ -31,7 +32,10 @@ $liens = [
       <div class="links">
           <ul>
               <?php foreach ($liens as $url => $libelle) : ?>
+                <?php if(!isset($_SESSION['userId']) && $libelle === 'Mes Urls'): ?>
+                <?php else: ?>
                 <li><a href="<?= $url ?>"><?= $libelle ?></a></li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -58,7 +62,7 @@ $liens = [
                             <h3 id="title-register">Register</h3>
                         </div>
                     </div>
-                    <form id="login-form" class="login-form" method="POST" action="#">
+                    <form id="login-form" class="login-form" method="POST" action="">
                         <div class="user-box">
                             <input type="text" name="login" required="true" autocomplete="off" >
                             <label>Email ou username</label>
@@ -70,7 +74,7 @@ $liens = [
                         <div class="message-connexion">
                             <h5><?= $message ?></h5>
                         </div>
-                        <a href="#">
+                        <a href="" class="">
                             <span></span>
                             <span></span>
                             <span></span>

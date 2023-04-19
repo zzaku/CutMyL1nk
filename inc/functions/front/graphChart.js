@@ -1,4 +1,5 @@
 const ctx = document.getElementById('myChart');
+const labelButton = document.getElementById('label');
 
     let urlsDateLabel = myShortUrlsArray.map(url => {
 
@@ -39,25 +40,61 @@ const ctx = document.getElementById('myChart');
         return {formattedDate, myClics};
     }
 
-    let labelsUrl = formatDate(urlsDateLabel);
+    function extractHostname(url) {
+        let hostname = '';
+      
+        // find & remove protocol (http, ftp, etc.) and get hostname
+        if (url.indexOf('://') > -1) {
+          hostname = url.split('/')[2];
+        } else {
+          hostname = url.split('/')[0];
+        }
+      
+        // remove port number
+        hostname = hostname.split(':')[0];
+      
+        // remove suffix (.com, .org, etc.)
+        hostname = hostname.replace(/\.[^/.]+$/, "");
+      
+        return hostname;
+      }
 
-    new Chart(ctx, {
+      
+    let labelsUrl = formatDate(urlsDateLabel);
+    let labelHostName = myShortUrlsArray.map(urlInfo => extractHostname('https://' + urlInfo.original_url));
+
+    function switchLabel(datas, label) {
+        console.log(chart.data.labels)
+        chart.data.labels = datas
+        labelButton.textContent = label
+        chart.update();
+    }
+
+    labelButton.addEventListener('click', () => {
+        if(labelButton.textContent === 'Date'){
+            switchLabel(labelsUrl.formattedDate, 'Nom');
+        } else if(labelButton.textContent === 'Nom'){
+            switchLabel(labelHostName, 'Date');
+        }
+      });
+
+    let chart = new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: labelsUrl.formattedDate,
-        datasets: [{
-            label: '# of Votes',
-            data: labelsUrl.myClics,
-            borderWidth: 3
-        }]
+            labels: labelHostName,
+            datasets: [{
+                label: 'Afficher',
+                data: labelsUrl.myClics,
+                borderWidth: 3,
+            }],
         },
         options: {
-        scales: {
-            y: {
-            beginAtZero: true
-            }
-        },
-        backgroundColor: 'rgb(27 36 88)',
-        borderColor: 'rgb(22 160 133)',
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },
+            backgroundColor: 'rgb(27 36 88)',
+            borderColor: 'rgb(22 160 133)',
     }
 });

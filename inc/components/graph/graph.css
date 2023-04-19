@@ -9,6 +9,21 @@
     border: 2px rgb(22 160 133) solid;
     padding: 1%;
 }
+.graph-container .canvas-container {
+    position: relative;
+}
+.graph-container .canvas-container button{
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    border: 2px #16a085 solid;
+    background: #1b2458;
+    color: #d6e9e7;
+    margin-top: 5PX;
+    border-radius: 10px;
+    width: 60px;
+    height: 22px;
+}
 
 #myChart{
     background: #ecf0f1;

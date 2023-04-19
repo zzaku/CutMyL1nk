@@ -2,9 +2,9 @@
 
 //----------------------------------------------------------------- En retirant ces header, l'incrémentation du click se fait seule fois par navigateur ------------------------
 //------------------------------------------------------------------- à moins de vider le cache, et ce pour éviter le spam ------------------------------------------------------------
-    //header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
-    //header('Cache-Control: no-cache, must-revalidate, max-age=0');
-    //header('Pragma: no-cache');
+    header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
+    header('Cache-Control: no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
 
     require_once('functions.php');
 
@@ -19,14 +19,18 @@
         $url = $_SERVER['REQUEST_URI'];
 
         // Extraction du segment d'URL après le nom de domaine
-        $segments = array_splice(explode('/', $url), -2);
-        $shortUrl = $segments[0] . '/' . $segments[1];
-        $idUser = substr($segments[1], 6);
+        $segments = explode('/', $url);
+        $segmentsSplice = array_splice($segments, -2);
+
+        $shortUrl = $segmentsSplice[0] . '/' . $segmentsSplice[1];
+
+        $idUser = substr($segmentsSplice[1], 6);
 
         // Recherche de l'url originale correspondant à l'url raccourcie
-        $stmt = $pdo->prepare('SELECT original_url FROM urls WHERE short_url = :short_url');
+        $stmt = $pdo->prepare('SELECT original_url FROM urls WHERE short_url = :short_url AND is_active = :true');
         $stmt->execute(array(
             'short_url' => $shortUrl,
+            'true' => true,
         ));
         $result = $stmt->fetch();
 
