@@ -1,2 +1,1 @@
-
-    <?php include("./inc/components/header/navbar.php"); ?>
+<?php include("./inc/components/header/navbar.php"); ?>

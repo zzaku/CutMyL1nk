@@ -29,7 +29,7 @@ function addUrl()
 
 //-----------------------------------------------------------------------------------------------------------------
 
-                //Raccourcissement de l'url
+                //Validation de l'url
                 if($isValidUrl){
 
                     $url = preg_replace(
@@ -47,14 +47,15 @@ function addUrl()
                         'user_id' => $currentIdUser,
                     ));
                     // Récupération du nombre de résultats correspondant à la requête
-                    $resultatEmail = $stmt->fetchColumn() > 0;
+                    $isAlreadyExist = $stmt->fetchColumn() > 0;
 
 //-----------------------------------------------------------------------------------------------------------------
 
-                    if($resultatEmail){
-                        $message = "L'URL entrée à déja été raccourcis !";
+                    if($isAlreadyExist){
+                        $message = "L'URL entrée à déja été raccourci !";
                     } else {
 
+                        //Raccourcissement de l'url
                         $shortUrl = generateShortUrl();
                         $fullShortUrl = 'cutmy.l1nk/' . $shortUrl . $_SESSION['userId'];
 
@@ -66,7 +67,7 @@ function addUrl()
                             'short_url' => $fullShortUrl,
                         ));
 
-                        $message = "URL raccourcie : <a style='color: #16a085' href=" . $fullShortUrl . ">" . "CutMyLink/" . $fullShortUrl . "</a>";
+                        $message = "URL raccourcie : <a style='color: #16a085' href=" . $fullShortUrl . ">" . $fullShortUrl . "</a>";
                         $isShort = true;
                     }
 

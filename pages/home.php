@@ -69,9 +69,9 @@
     </div>
     <div class="url-input_container">
         <div class="url-input_content">
-            <form class="url-input-form-container" method="POST" action="#">
+            <form class="url-input-form-container" method="POST" action="">
                 <div class="url-input-form-content">
-                    <input class="url-input" type="text" name="url" placeholder="ex: https://CutMyL1nk.fr ">
+                    <input class="url-input" type="text" name="url" placeholder="ex: https://cutmyl1nk.fr ">
                     <div class="bars">
                         <div class="bar arrow" style="--rotate:45deg"></div>
                         <div class="bar left" style="--rotate:-45deg;"></div>
